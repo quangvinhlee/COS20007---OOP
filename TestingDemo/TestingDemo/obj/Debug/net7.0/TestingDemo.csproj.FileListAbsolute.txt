@@ -1,0 +1,15 @@
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\bin\Debug\net7.0\TestingDemo.exe
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\bin\Debug\net7.0\TestingDemo.deps.json
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\bin\Debug\net7.0\TestingDemo.runtimeconfig.json
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\bin\Debug\net7.0\TestingDemo.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\bin\Debug\net7.0\TestingDemo.pdb
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.csproj.AssemblyReference.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.AssemblyInfoInputs.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.AssemblyInfo.cs
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.csproj.CoreCompileInputs.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\refint\TestingDemo.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.pdb
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\TestingDemo.genruntimeconfig.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\TestingDemo\TestingDemo\obj\Debug\net7.0\ref\TestingDemo.dll
