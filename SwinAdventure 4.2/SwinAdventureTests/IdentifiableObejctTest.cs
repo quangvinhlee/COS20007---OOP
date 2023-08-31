@@ -6,11 +6,12 @@ namespace SwinAdventureTests
     public class IdentifiableObjectTests
     {
         private IdentifiableObject _iObject;
-        private string[] idents = new[] { "Fred", "Bob" };
+        private string[] idents;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
+            idents = new[] { "Fred", "Bob" };
             _iObject = new IdentifiableObject(idents);
         }
 
@@ -18,6 +19,7 @@ namespace SwinAdventureTests
         public void TestAreYou()
         {
             Assert.True(_iObject.AreYou("Fred"));
+            Console.WriteLine(_iObject);
         }
 
         [Test]
