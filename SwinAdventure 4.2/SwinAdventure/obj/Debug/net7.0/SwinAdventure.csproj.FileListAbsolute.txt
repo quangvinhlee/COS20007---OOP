@@ -18,7 +18,6 @@ C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\bin\D
 C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\bin\Debug\net7.0\SwinAdventure.runtimeconfig.json
 C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\bin\Debug\net7.0\SwinAdventure.dll
 C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\bin\Debug\net7.0\SwinAdventure.pdb
-C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\obj\Debug\net7.0\SwinAdventure.csproj.AssemblyReference.cache
 C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\obj\Debug\net7.0\SwinAdventure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\obj\Debug\net7.0\SwinAdventure.AssemblyInfoInputs.cache
 C:\Users\lequa\OneDrive\Documents\COS20007\SwinAdventure 4.2\SwinAdventure\obj\Debug\net7.0\SwinAdventure.AssemblyInfo.cs

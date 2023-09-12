@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer - Copy\\ShapeDrawer.csproj": {}
+    "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer 4.1\\ShapeDrawer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer - Copy\\ShapeDrawer.csproj": {
+    "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer 4.1\\ShapeDrawer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer - Copy\\ShapeDrawer.csproj",
+        "projectUniqueName": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer 4.1\\ShapeDrawer.csproj",
         "projectName": "ShapeDrawer",
-        "projectPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer - Copy\\ShapeDrawer.csproj",
+        "projectPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer 4.1\\ShapeDrawer.csproj",
         "packagesPath": "C:\\Users\\lequa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer - Copy\\obj\\",
+        "outputPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\ShapeDrawer 4.1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

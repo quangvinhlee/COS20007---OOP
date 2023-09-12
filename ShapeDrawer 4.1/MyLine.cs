@@ -9,18 +9,27 @@ namespace ShapeDrawer
 {
     public class MyLine : Shape
     {
-        private int _length;
-
-        public MyLine(Color clr, int lenght) : base(clr)
+        private float _endX;
+        private float _endY;
+        public MyLine(Color clr,float startX, float startY, float endX, float endY) : base(clr)
         {
-            _length = lenght;
+            _endX = endX;
+            _endY = endY;
+            X = startX;
+            Y = startY;
+
         }
-        public MyLine() : this(Color.RandomRGB(255), 100) { }
+        public MyLine() : this(Color.RandomRGB(255), 10, 10, 10, 10) { }
 
-        public int Length
+        public float EndX
         {
-            get { return _length; }
-            set { _length = value; }
+            get { return _endX; }
+            set { _endX = value; }
+        }
+        public float EndY
+        {
+            get { return _endY; }
+            set { _endY = value; }
         }
 
         public override void Draw()
@@ -29,15 +38,25 @@ namespace ShapeDrawer
             {
                 DrawOutline();
             }
-            SplashKit.DrawLine(Color, X, Y, X + _length + 3, Y);
+            SplashKit.DrawLine(Color, X, Y, _endX, _endY);
         }
         public override void DrawOutline()
         {
-            SplashKit.DrawLine(Color, X + 1, Y + 1 , _length + 5, Y);
+            SplashKit.DrawCircle(Color.Black, X, Y, 5);
+            SplashKit.DrawCircle(Color.Black, _endX, _endY, 5);
         }
         public override bool IsAt(Point2D p)
         {
-            return SplashKit.PointOnLine(p, SplashKit.LineFrom(X, Y, X + _length, Y));
+            /*double x = p.X;
+            double y = p.Y;
+
+            return true;*/
+            if (p.X <= X && p.Y <= Y)
+            {
+                return SplashKit.PointOnLine(p, SplashKit.LineFrom(X, Y, EndX, EndY));
+
+            }
+            return false;
         }
     }
 }

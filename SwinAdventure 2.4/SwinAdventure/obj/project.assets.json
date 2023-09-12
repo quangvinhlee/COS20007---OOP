@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure\\SwinAdventure\\SwinAdventure.csproj",
+      "projectUniqueName": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure 2.4\\SwinAdventure\\SwinAdventure.csproj",
       "projectName": "SwinAdventure",
-      "projectPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure\\SwinAdventure\\SwinAdventure.csproj",
+      "projectPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure 2.4\\SwinAdventure\\SwinAdventure.csproj",
       "packagesPath": "C:\\Users\\lequa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure\\SwinAdventure\\obj\\",
+      "outputPath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure 2.4\\SwinAdventure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lequa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

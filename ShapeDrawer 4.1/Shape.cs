@@ -67,6 +67,6 @@ namespace ShapeDrawer
 
         public abstract void DrawOutline();
         
-        
+            
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OBhszcpLKpzw48sPmsA5npdTJgAt1jB5OFp62DX63ZBNMaGSwBGq3356u+vTuHAdCz0rL7uXk4xxjwC1qv4yvA==",
+  "dgSpecHash": "CUxl2ZJz5/I4fEaf51lhLv1xY2GwIe5mH33SglFkk1fhju8Gzkp9o7WHrOonR86ViqdfAZ6+noHsAHItdzwOOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure\\SwinAdventureTests\\SwinAdventureTests.csproj",
+  "projectFilePath": "C:\\Users\\lequa\\OneDrive\\Documents\\COS20007\\SwinAdventure 2.4\\SwinAdventureTests\\SwinAdventureTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lequa\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\lequa\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",

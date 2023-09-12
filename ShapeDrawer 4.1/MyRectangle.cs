@@ -45,7 +45,14 @@ namespace ShapeDrawer
         }
         public override bool IsAt(Point2D p)
         {
-            return SplashKit.PointInRectangle(p, SplashKit.RectangleFrom(X, Y, Width, Height));
+            if ((p.X > X) && (p.X < (X + _width)))
+            {
+                if ((p.Y > Y) && (p.Y < (Y + _height)))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
