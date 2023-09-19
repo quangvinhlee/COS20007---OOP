@@ -19,7 +19,7 @@ namespace ShapeDrawer
             Y = startY;
 
         }
-        public MyLine() : this(Color.RandomRGB(255), 10, 10, 10, 10) { }
+        public MyLine() : this(Color.RandomRGB(255), 0, 0, 20, 20) { }
 
         public float EndX
         {
@@ -47,16 +47,16 @@ namespace ShapeDrawer
         }
         public override bool IsAt(Point2D p)
         {
-            /*double x = p.X;
-            double y = p.Y;
+            // Calculate the distance from the point to the line
+            double distance = Math.Abs((EndY - Y) * p.X - (EndX - X) * p.Y + EndX * Y - EndY * X)
+                            / Math.Sqrt(Math.Pow(EndY - Y, 2) + Math.Pow(EndX - X, 2));
 
-            return true;*/
-            if (p.X <= X && p.Y <= Y)
-            {
-                return SplashKit.PointOnLine(p, SplashKit.LineFrom(X, Y, EndX, EndY));
+            // Define a tolerance value for how close the point can be to the line
+            double tolerance = 5.0; // Adjust as needed
 
-            }
-            return false;
+            // Check if the distance is within the tolerance
+            return distance <= tolerance;
         }
+
     }
 }

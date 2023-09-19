@@ -10,11 +10,13 @@ namespace ShapeDrawer
     {
         private int _radius;
 
-        public MyCircle(Color clr, int radius) : base(clr)
+        public MyCircle(Color clr,float x, float y, int radius) : base(clr)
         {
+            X = x;
+            Y = y;
             _radius = radius;
         }
-        public MyCircle() : this(Color.Blue, 50) { }
+        public MyCircle() : this(Color.Blue,0,0, 50) { }
         public int Radius { get { return _radius; } }
         public override void Draw()
         {

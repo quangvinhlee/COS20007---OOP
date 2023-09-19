@@ -39,25 +39,24 @@ namespace ShapeDrawer
                     if (kindToAdd == ShapeKind.Circle)
                     {
                         MyCircle newCircle = new MyCircle();
-                        newCircle.X = SplashKit.MouseX();
-                        newCircle.Y = SplashKit.MouseY();
+                        
                         newShape = newCircle;
 
                     }
                     else if (kindToAdd == ShapeKind.Rectangle)
                     {
                         MyRectangle newRect = new MyRectangle();
-                        newRect.X = SplashKit.MouseX();
-                        newRect.Y = SplashKit.MouseY();
+                       
                         newShape = newRect;
                     }
                     else
                     {
                         MyLine newLine = new MyLine();
-                        newLine.X = SplashKit.MouseX();
-                        newLine.Y = SplashKit.MouseY();
+                       
                         newShape = newLine;
                     }
+                    newShape.X = SplashKit.MouseX();
+                    newShape.Y = SplashKit.MouseY();
                     myDrawing.AddShape(newShape);
                 }
 
@@ -68,7 +67,11 @@ namespace ShapeDrawer
 
                 if (SplashKit.KeyTyped(KeyCode.BackspaceKey) || SplashKit.KeyTyped(KeyCode.DeleteKey))
                 {
-                    myDrawing.RemoveShape();
+                    List<Shape> selectedShapes = myDrawing.SelectedShapes();
+                    foreach (Shape selectedShape in selectedShapes)
+                    {
+                            myDrawing.RemoveShape(selectedShape);
+                    }
                 }
 
                 if (SplashKit.KeyTyped(KeyCode.SpaceKey))

@@ -22,17 +22,16 @@ namespace ShapeDrawer
 
         public List<Shape> SelectedShapes()
         {
-            List<Shape> _selectedShapes = new List<Shape>();
-            foreach (Shape s in _selectedShapes)
+            List<Shape> selectedShapes = new List<Shape>();
+            foreach (Shape s in _shapes)
             {
                 if (s.Selected)
                 {
-                    _selectedShapes.Add(s);
+                    selectedShapes.Add(s);
                 }
             }
-            return _selectedShapes;
+            return selectedShapes;
         }
-
         public int ShapeCount
         {
             get
@@ -83,15 +82,9 @@ namespace ShapeDrawer
             _shapes.Add(s);
         }
 
-        public void RemoveShape()
+        public void RemoveShape(Shape s)
         {
-            foreach (Shape s in _shapes.ToList())
-            {
-                if (s.Selected)
-                {
-                    _shapes.Remove(s);
-                }
-            }
+            _shapes.Remove(s);
         }
     }
 }
