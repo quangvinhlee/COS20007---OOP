@@ -1,33 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SemesterTest
 {
-    public class File
+    public class File : Thing
     {
-        private string _name;
         private string _extension;
         private int _size;
 
-        public File(string name, string extension, int size)
+        public File(string name, string extension, int size) : base(name) 
         {
-            _name = name;
             _extension = extension;
             _size = size;
         }
-
-        public int Size()
+        public override int Size() { return _size; }
+        public override void Print()
         {
-            return _size;
-        }
-
-        public void Print()
-        {
-            Console.WriteLine($"File '{_name} - {_extension}' - {_size} bytes");
-        }
-
-        public string Name
-        {
-            get { return _name; }
+            Console.WriteLine($"File '{Name}' -- {_size} bytes");
         }
     }
 }

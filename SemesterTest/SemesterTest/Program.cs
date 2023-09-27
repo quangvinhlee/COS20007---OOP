@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 namespace SemesterTest
 {
     class Program
@@ -8,45 +8,23 @@ namespace SemesterTest
         {
             FileSystem fileSystem = new FileSystem();
 
-            while (true)
-            {
-                Console.WriteLine("1. Add Folder");
-                Console.WriteLine("2. Add File");
-                Console.WriteLine("3. Print Contents");
-                Console.WriteLine("4. Exit");
-                Console.Write("Enter your choice: ");
+            fileSystem.Add(new File("AnImage.jpg", ".jpg", 5342));
+            fileSystem.Add(new File("SomeFile.txt", ".txt", 832));
 
-                string choice = Console.ReadLine();
+            Folder folder = new Folder("Save File");
+            folder.Add(new File("Save 1 - The Citadel.data", ".data", 2348));
+            fileSystem.Add(folder);
 
-                switch (choice)
-                {
-                    case "1":
-                        Console.Write("Enter folder name: ");
-                        string folderName = Console.ReadLine();
-                        Folder folder = new Folder(folderName);
-                        fileSystem.AddFolder(folder);
-                        break;
-                    case "2":
-                        Console.Write("Enter file name: ");
-                        string fileName = Console.ReadLine();
-                        Console.Write("Enter file extension: ");
-                        string fileExtension = Console.ReadLine();
-                        Console.Write("Enter file size (in bytes): ");
-                        int fileSize = int.Parse(Console.ReadLine());
-                        File file = new File(fileName, fileExtension, fileSize);
-                        fileSystem.AddFile(file);
-                        break;
-                    case "3":
-                        fileSystem.PrintContent();
-                        break;
-                    case "4":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice. Please enter a valid option.");
-                        break;
-                }
-            }
+            Folder subFolder = new Folder("MyFolder");
+            Folder subFolder2 = new Folder("MyFolder2");
+            subFolder2.Add(new File("SemesterTest.txt", ".txt", 6900));
+            subFolder.Add(subFolder2);
+            fileSystem.Add(subFolder);
+
+            fileSystem.Add(new Folder("New Folder"));
+
+            fileSystem.PrintContents();
+            
         }
     }
 }

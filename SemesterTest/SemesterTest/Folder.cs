@@ -1,50 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SemesterTest
 {
-    public class Folder
+    public class Folder : Thing
     {
-        private List<File> _contents;
-        private String _name;
+        private List<Thing> _contents;
 
-        public Folder(string name)
+        public Folder(string name) : base(name)
         {
-            _name = name;
-            _contents = new List<File>();
+            _contents = new List<Thing>();
         }
 
-        public void Add(File _file)
+        public void Add(Thing toAdd)
         {
-            _contents.Add(_file);
+            _contents.Add(toAdd);
         }
 
-        public int Size()
+        public override int Size()
         {
-            int size = 0;
-
-            foreach (File file in _contents)
+            int folderSize = 0;
+            foreach (Thing thing in _contents)
             {
-                size += file.Size();
+                folderSize += thing.Size();
             }
-
-            return size;
+            return folderSize;
         }
 
-        public void Print()
+        public override void Print()
         {
-            int folderSize = Size(); // Calculate the folder size.
-            Console.WriteLine($"The folder '{Name}' contains {folderSize} bytes total:");
-
-            foreach (File file in _contents)
+            if (_contents.Count != 0)
             {
-                file.Print();
+                Console.WriteLine($"The folder '{Name}' contains {Size()} bytes total:");
+                foreach (Thing thing in _contents)
+                {
+                    thing.Print();
+                }
             }
-        }
-
-        public String Name
-        {
-            get { return _name; }
+            else
+            {
+                Console.WriteLine($"The folder '{Name}' is empty!");
+            }
         }
     }
 }
