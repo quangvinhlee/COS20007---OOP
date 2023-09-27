@@ -1,0 +1,4 @@
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.AssemblyInfoInputs.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.AssemblyInfo.cs
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.csproj.CoreCompileInputs.cache
