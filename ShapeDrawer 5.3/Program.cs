@@ -93,13 +93,7 @@ namespace ShapeDrawer
                     {
                         Console.Error.WriteLine("Error loadding file: {0}", e.Message);
                     }
-                    /*string LoadFolderPath = @"C:\Users\lequa\OneDrive\Documents\COS20007\ShapeDrawer 5.3";
-                    string LoadFileName = "TestDrawing.txt";
-                    string LoadPath = System.IO.Path.Combine(LoadFolderPath, LoadFileName);
-
-                    myDrawing.Load(LoadPath);
-
-                    Console.WriteLine($"Drawing load from {LoadPath}");*/
+                    
                 }
 
                 if (SplashKit.MouseClicked(MouseButton.RightButton))

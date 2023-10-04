@@ -9,46 +9,68 @@ namespace ShapeDrawer
 {
     public class MyLine : Shape
     {
-        private int _length;
-
-        public MyLine(Color clr, int lenght) : base(clr)
+        private float _endX;
+        private float _endY;
+        public MyLine(Color clr, float startX, float startY, float endX, float endY) : base(clr)
         {
-            _length = lenght;
+            X = startX;
+            Y = startY;
+            _endX = endX;
+            _endY = endY;
+           
+
         }
-        public MyLine() : this(Color.RandomRGB(255), 100) { }
+        public MyLine() : this(Color.RandomRGB(255), 0, 0, 20, 20) { }
 
-        public int Length
+        public float EndX
         {
-            get { return _length; }
-            set { _length = value; }
+            get { return _endX; }
+            set { _endX = value; }
+        }
+        public float EndY
+        {
+            get { return _endY; }
+            set { _endY = value; }
         }
 
         public override void Draw()
         {
-            if (Selected) 
+            if (Selected)
             {
                 DrawOutline();
             }
-            SplashKit.DrawLine(Color, X, Y, X + _length + 3, Y);
+            SplashKit.DrawLine(Color, X, Y, _endX, _endY);
         }
         public override void DrawOutline()
         {
-            SplashKit.DrawLine(Color, X + 1, Y + 1 , _length + 5, Y);
+            SplashKit.DrawCircle(Color.Black, X, Y, 5);
+            SplashKit.DrawCircle(Color.Black, _endX, _endY, 5);
         }
         public override bool IsAt(Point2D p)
         {
-            return SplashKit.PointOnLine(p, SplashKit.LineFrom(X, Y, X + _length, Y));
+            // Calculate the distance from the point to the line
+            double distance = Math.Abs((EndY - Y) * p.X - (EndX - X) * p.Y + EndX * Y - EndY * X)
+                            / Math.Sqrt(Math.Pow(EndY - Y, 2) + Math.Pow(EndX - X, 2));
+
+            // Define a tolerance value for how close the point can be to the line
+            double tolerance = 5.0; // Adjust as needed
+
+            // Check if the distance is within the tolerance
+            return distance <= tolerance;
         }
         public override void SaveTo(StreamWriter writer)
         {
             writer.WriteLine("Line");
-            base.SaveTo(writer);
-            writer.WriteLine(Length);
+            base.SaveTo(writer); // This will write Color, X, and Y
+            writer.WriteLine(EndX); // Write EndX
+            writer.WriteLine(EndY); // Write EndY
         }
+
         public override void LoadFrom(StreamReader reader)
         {
-            base.LoadFrom(reader);
-            Length = reader.ReadInteger();
+            base.LoadFrom(reader); // This reads Color, X, and Y
+            EndX = reader.ReadSingle(); // Read EndX
+            EndY = reader.ReadSingle(); // Read EndY
         }
     }
 }

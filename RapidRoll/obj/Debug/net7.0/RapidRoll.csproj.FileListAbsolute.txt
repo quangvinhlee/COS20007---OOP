@@ -1,4 +1,14 @@
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\bin\Debug\net7.0\RapidRoll.exe
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\bin\Debug\net7.0\RapidRoll.deps.json
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\bin\Debug\net7.0\RapidRoll.runtimeconfig.json
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\bin\Debug\net7.0\RapidRoll.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\bin\Debug\net7.0\RapidRoll.pdb
 C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.AssemblyInfoInputs.cache
 C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.AssemblyInfo.cs
 C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.csproj.CoreCompileInputs.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\refint\RapidRoll.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.pdb
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\RapidRoll.genruntimeconfig.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\RapidRoll\obj\Debug\net7.0\ref\RapidRoll.dll

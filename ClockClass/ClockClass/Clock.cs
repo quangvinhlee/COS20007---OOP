@@ -40,7 +40,6 @@ namespace ClockClass
         }
 
 
-
         public void Reset()
         {
             _seconds.Reset();

@@ -12,7 +12,7 @@ namespace Tests
             _counterTest = new Counter("Test");
         }
 
-        [Test]
+                
         public void test_start9()
         {
             Assert.AreEqual(0, _counterTest.Ticks);

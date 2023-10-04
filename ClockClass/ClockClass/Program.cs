@@ -10,12 +10,11 @@ namespace ClockClass
 {
     class Program
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
             Clock clock = new Clock();
-            int i;
 
-            for (i = 0; i < 86400; i++)
+            for (int i = 0; i < 86400; i++)
             {
                 Thread.Sleep(1000);
                 Console.Clear();

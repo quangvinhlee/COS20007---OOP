@@ -21,8 +21,7 @@ namespace Tests
         [Test]
         public void TestReset()
         {
-            int i;
-            for (i = 0; i < 86400; i++)
+            for (int i = 0; i < 86400; i++)
             {
                 _clock.Tick();
             }

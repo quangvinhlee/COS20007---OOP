@@ -16,9 +16,9 @@ namespace SemesterTest
             _contents = new List<Thing>();
         }
 
-        public void Add(Thing toAdd)
+        public void Add(Thing thing)
         {
-            _contents.Add(toAdd);
+            _contents.Add(thing);
         }
 
         public override int Size()

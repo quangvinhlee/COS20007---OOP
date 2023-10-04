@@ -46,7 +46,7 @@ namespace ShapeDrawer
             SplashKit.DrawCircle(Color.Black, _endX, _endY, 5);
         }
         public override bool IsAt(Point2D p)
-        {
+        {   
             // Calculate the distance from the point to the line
             double distance = Math.Abs((EndY - Y) * p.X - (EndX - X) * p.Y + EndX * Y - EndY * X)
                             / Math.Sqrt(Math.Pow(EndY - Y, 2) + Math.Pow(EndX - X, 2));

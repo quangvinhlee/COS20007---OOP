@@ -15,7 +15,7 @@ namespace SwinAdventure
         }
         public GameObject Locate(string id)
         {
-            if (AreYou(id)) return this;
+            if (AreYou(id)) { return this; }
             return _inventory.Fetch(id);
         }
         public override string FullDescription 

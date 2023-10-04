@@ -3,7 +3,6 @@ C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\bin\Debug\net7.
 C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\bin\Debug\net7.0\ClockClass.runtimeconfig.json
 C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\bin\Debug\net7.0\ClockClass.dll
 C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\bin\Debug\net7.0\ClockClass.pdb
-C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\obj\Debug\net7.0\ClockClass.csproj.AssemblyReference.cache
 C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\obj\Debug\net7.0\ClockClass.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\obj\Debug\net7.0\ClockClass.AssemblyInfoInputs.cache
 C:\Users\lequa\OneDrive\Documents\COS20007\ClockClass\ClockClass\obj\Debug\net7.0\ClockClass.AssemblyInfo.cs
