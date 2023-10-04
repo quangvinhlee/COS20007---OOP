@@ -28,6 +28,7 @@ namespace RapidRoll
             _blocks = new List<Block>();
             _items = new List<Item>();
             _player = new Player();
+
         }
         // Move player to the left
         public void MoveLeft()
@@ -63,12 +64,28 @@ namespace RapidRoll
         public void Spawn()
         {
             int index = _blocks.Count - 1;
-            while (_blocks[index].IsObstacle) 
+
+            // Find the last non-obstacle block or the first block if there are no non-obstacle blocks
+            while (index >= 0 && _blocks[index].IsObstacle)
             {
                 index--;
             }
-            _player.X = _blocks[index].X;
-            _player.Y = _blocks[index].Y - _player.Image.Height;
+
+            if (index >= 0)
+            {
+                _player.X = _blocks[index].X;
+                _player.Y = _blocks[index].Y - _player.Image.Height;
+            }
+            else
+            {
+                // Handle the case where there are no suitable blocks (all blocks are obstacles)
+                // You can choose to spawn the player at a default position or handle it differently.
+                // For example, you can generate a new block at the bottom for the player to stand on.
+                // Here's an example of spawning the player at the bottom:
+
+                _player.X = Constants._scrWidth / 2 - _player.Image.Width / 2; // Centered horizontally
+                _player.Y = Constants._scrHeight - Constants._headerHeight - _player.Image.Height; // At the bottom
+            }
         }
         public void SetPlayerImage(Player player)
         {
@@ -93,6 +110,7 @@ namespace RapidRoll
                     ReduceLives();
                 }
             }
+            
             else if (player.Y >= Constants._headerHeight + player.ThornImage.Height)
             {
                 if (player.Inventories.Any(inventory => inventory.ItemType == ItemType.Shield))
@@ -108,6 +126,24 @@ namespace RapidRoll
                     ReduceLives();
                 }
             }
+            if (player.Y < (Constants._headerHeight + _player.ThornImage.Height) - 40)
+            {
+                if (player.Inventories.Any(inventory => inventory.ItemType == ItemType.Shield))
+                {
+                    // Remove the shield effect
+                    _player.Inventories.RemoveAll(inventory => inventory.ItemType == ItemType.Shield);
+                    SetPlayerImage(_player);
+                    // Spawn player on a random block
+                    Spawn();
+                }
+                else
+                {
+                    ReduceLives();
+                }
+            }
+
+
+
         }
         public void StandOnBlock(List<Block> blocks, Player player)
         {
@@ -134,6 +170,7 @@ namespace RapidRoll
                         // Set player image here (use your actual method)
                         SetPlayerImage(player);
                         // spawn blocks, player (use your actual method)
+                        Spawn() ;
                     }
                     // If it is an obstacle but player DOESN'T have shield
                     else
@@ -188,7 +225,7 @@ namespace RapidRoll
         {
             blocks.RemoveAll(block =>
             {
-                if (block.Y < Constants._headerHeight + new Bitmap("UpThorn", "images/up_thorn.png").Height)
+                if (block.Y < Constants._headerHeight + _player.ThornImage.Height)
                 {
                     player.Score++;
                     return true;
@@ -246,10 +283,10 @@ namespace RapidRoll
 
         // ----------------------------------------------
         // Draw player's score
-        public void DrawScore(Player player, Font font)
+        public void DrawScore(Player player)
         {
             string scoreText = $"Score: {player.Score}";
-           SplashKit.DrawText(scoreText, Color.Black, font, 0);
+            SplashKit.DrawText(scoreText, Color.Black, 5, 20); // Adjust the coordinates as needed
         }
 
         public void DrawBlocks(List<Block> blocks)
@@ -377,7 +414,7 @@ namespace RapidRoll
             DrawBlocks(_blocks);
             DrawItems(_items);
             DrawGameOver(_player);
-
+            DrawScore(_player);
         }
         public void update()
         {
@@ -422,6 +459,11 @@ namespace RapidRoll
             // Reinitialize the player
             _player = new Player();
 
+            _player.X = Constants._scrWidth / 2 - _player.Image.Width / 2; // Centered horizontally
+            _player.Y = Constants._scrHeight / 3; // Adjust this value to set the initial height
+
+            // Spawn the first block at the bottom
+            GenerateBlocks();
             // Spawn the player at the initial position
             Spawn();
             

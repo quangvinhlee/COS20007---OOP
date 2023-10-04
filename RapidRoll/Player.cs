@@ -31,6 +31,7 @@ namespace RapidRoll
             Inventories = new List<Item>();
             Score = 0;
         }
+
         public List<Live> Lives { get { return _lives; } }
         
     }
