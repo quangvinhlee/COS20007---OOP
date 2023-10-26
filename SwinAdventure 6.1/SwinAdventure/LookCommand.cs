@@ -8,60 +8,78 @@ namespace SwinAdventure
 {
     public class LookCommand : Command
     {
-        public LookCommand() : base(new string[] { "look" })
+        public LookCommand() :
+            base(new string[] { "look" })
         {
-
         }
+
         public override string Execute(Player p, string[] text)
         {
-            IHaveInventory container;
-            string itemId;
-            string error = "Error in the input.";
-            if (text[0].ToLower() != "look")
-                return error;
+            if (text[0] != "look")
+            { return "Error in look input"; }
 
-            switch (text.Length)
+            if (text[1] != "at")
+            { return "What do you want to look at?"; }
+
+            if (text.Length == 5 && text[3] != "in")
             {
-                case 3:
-                    if (text[1].ToLower() != "at")
-                        return "What do you want to look at?";
-                    container = p; // Use the Player object as the container
-                    itemId = text[2];
-                    break;
-
-                case 5:
-                    container = FetchContainer(p, text[4]);
-                    if (container == null)
-                        return $"Couldn't find the {text[4]}.";
-                    itemId = text[2];
-                    break;
-
-                default:
-                    return $"I don't know how to look like that.";
+                return "What do you want to look in?";
             }
 
-            string itemDescription = LookAtIn(itemId, container);
-            if (itemDescription == null)
-                return $"Couldn't find the {itemId} in the {container.Name}.";
-
-            return itemDescription;
-        }
-
-        private IHaveInventory FetchContainer(Player p, string containerId)
-        {
-            return p.Locate(containerId) as IHaveInventory;
-        }
-
-        private string LookAtIn(string thingId, IHaveInventory container)
-        {
-            GameObject item = container.Locate(thingId);
-            if (item != null)
+            string output;
+            if (text.Length == 3)
             {
-                return $"{item.FullDescription}";
+                output = LookAtIn(text[2], p as IHaveInventory);
+                if (output == null)
+                {
+                    return "I can't find the " + text[2];
+                }
+                else
+                {
+                    return output;
+                }
             }
 
-            return $"Couldn't find {thingId}.";
+            else if (text.Length == 5)
+            {
+                IHaveInventory container = FetchContainer(p, text[4]);
+                if (container != null)
+                {
+                    output = LookAtIn(text[2], container);
+                    if (output == null)
+                    {
+                        return "I can't find the " + text[2] + " in the" + text[4];
+                    }
+                    else
+                    {
+                        return output;
+                    }
+                }
+                else
+                {
+                    return "I can't find the " + text[4];
+                }
+            }
+
+            else
+            {
+                return "I don't know how to look like that";
+            }
         }
 
+        private IHaveInventory FetchContainer(Player p, string containerID)
+        {
+            return p.Locate(containerID) as IHaveInventory;
+        }
+
+        private string LookAtIn(string thingID, IHaveInventory container)
+        {
+            if (container.Locate(thingID) != null)
+            { return container.Locate(thingID).FullDescription; }   
+            else
+            {
+                return "I can't find the " + thingID;
+            }
+        }
     }
 }

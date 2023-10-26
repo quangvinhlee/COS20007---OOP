@@ -1,106 +1,109 @@
-﻿using SwinAdventure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace SwinAdventureTests
+namespace SwinAdventure
 {
     public class LookCommandTest
     {
-        Command look;
-        Player player, player1;
-        Bag bag;
-
-        Item gem = new Item(new string[] { "gem" }, "a gem", "This is a gem");
-        Item shovel = new Item(new string[] { "shovel" }, "a shovel", "This is a shovel");
-        Item diamond = new Item(new string[] { "diamond" }, "a diamond", "This is a diamond");
+        private Item _gem;
+        private Command _lookCommand;
+        private Player _player;
+        private Bag _bag;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            look = new LookCommand();
-            player = new Player("Anh", "Anh's Player"); //Set up player
-            bag = new Bag(new string[] { "bag" },
-                $"Anh's bag",
-                $"This is {player.FirstID} bag"); //Set up player bag
-            player.Inventory.Put(bag);
-
-
-            player1 = new Player("Anh", "Anh's Player"); //Player with no bag
-
+            _gem = new Item(new string[] { "gem" }, "a gem", "This is a gem");
+            _lookCommand = new LookCommand();
+            _player = new Player("Vinh", "PVinh's Player");
+            _bag = new Bag(new string[] { "bag" }, $"Player's bag", $"This is {_player.FirstID} bag");
 
         }
 
         [Test]
         public void TestLookAtMe()
         {
-            string Output = look.Execute(player, new string[] { "look", "at", "inventory" });
-            string exp = $"You are {player.Name}, You are carrying: {player.Inventory.ItemList}";
-            Assert.AreEqual(exp, Output);
+
+            string output = _lookCommand.Execute(_player, new string[] { "look", "at", "inventory" });
+            string expected = $"You are {_player.Name}, You are carrying: {_player.Inventory.ItemList}";
+            Assert.AreEqual(expected, output);
         }
 
-        [Test]
-        public void TestLookAtGem()
-        {
-            player.Inventory.Put(gem);
 
-            string Output = look.Execute(player, new string[] { "look", "at", "gem" });
-            string exp = $"{gem.FullDescription}";
-            Assert.AreEqual(exp, Output);
-        }
 
-        [Test]
-        public void TestLookAtUnk()
-        {
-            string Output = look.Execute(player, new string[] { "look", "at", "gem" });
-            string exp = $"Couldn't find gem.";
-            Assert.AreEqual(exp, Output);
-        }
+      [Test]
+         public void TestLookAtGem()
+         {
+             _player.Inventory.Put(_gem);
+             string output = _lookCommand.Execute(_player, new string[] { "look", "at", "gem" });
+             string expected = $"{_gem.FullDescription}";
+             Assert.AreEqual(expected, output);
+         }
+        
+       [Test]
+       public void TestLookAtUnk()
+       {
+           string output = _lookCommand.Execute(_player, new string[] { "look", "at", "gem" });
+           string expected = $"I can't find the gem";
+           Assert.AreEqual(expected, output);
+       }
+       
+       [Test]
+       public void TestLookAtGemInMe()
+       {
+          
+           _player.Inventory.Put(_gem);
 
-        [Test]
-        public void TestLookAtGemInMe()
-        {
-            player.Inventory.Put(gem);
-            string Output = look.Execute(player, new string[] { "look", "at", "gem", "in", "me" });
-            string exp = $"{gem.FullDescription}";
-            Assert.AreEqual(exp, Output);
-        }
+           string output = _lookCommand.Execute(_player, new string[] { "look", "at", "gem", "in", "me" });
+           string expected = $"{_gem.FullDescription}";
+            // console.WriteLine(expected);
+           Assert.AreEqual(expected, output);
+       }
+         
+      [Test]
+      public void TestLookAtGemInBag()
+      {
+            _player.Inventory.Put(_bag);
 
-        [Test]
-        public void TestLookAtGemInBag()
-        {
-            bag.Inventory.Put(gem);
-            string Output = look.Execute(player, new string[] { "look", "at", "gem", "in", $"bag" });
-            string exp = $"{gem.FullDescription}";
-            Assert.AreEqual(exp, Output);
-        }
+            _bag.Inventory.Put(_gem);
 
-        [Test]
-        public void TestLookAtNoGemInBag()
-        {
-            bag.Inventory.Put(gem);
-            string Output = look.Execute(player, new string[] { "look", "at", "iron", "in", $"bag" });
-            string exp = $"Couldn't find iron.";
-            Assert.AreEqual(exp, Output);
-        }
+          string output = _lookCommand.Execute(_player, new string[] { "look", "at", "gem", "in", "bag" });
+          string expected = $"{_gem.FullDescription}";
+          //Console.WriteLine(expected);
+          Assert.AreEqual(expected, output);
+      }
+       
+      [Test]
+      public void TestLookAtGemInNoBag()
+      {
+          _player.Inventory.Put(_gem);
+          string output = _lookCommand.Execute(_player, new string[] { "look", "at", "gem", "in", "bag" });
+          string expected = "I can't find the bag";
+          Assert.AreEqual(expected, output);
+      }
+     [Test]
+     public void TestLookAtNoGemInBag()
+     {
+         _player.Inventory.Put(_bag);
+         string output = _lookCommand.Execute(_player, new string[] { "look", "at", "gem", "in", "bag" });
+         string expected = $"I can't find the gem";
+         Assert.AreEqual(expected, output);
+     }
 
-        [Test]
-        public void TestLookAtGemInNoBag()
-        {
-            bag.Inventory.Put(gem);
-            player1.Inventory.Put(bag);
-            string Output = look.Execute(player1, new string[] { "look", "at", "gem", "in", $"{player.FirstID}" });
-            string exp = $"Couldn't find gem.";
-            Assert.AreEqual(exp, Output);
-        }
 
-        [Test]
-        public void TestInvalidLook()
-        {
-            Assert.AreEqual(look.Execute(player1, new string[] { "look", "around" }), "I don't know how to look like that.");
-           // Assert.AreEqual(look.Execute(player1, new string[] { "find", "gem" }), "Error in look input.");
-        }
+     [Test]
+     public void TestInvalidLook()
+     {
+         Assert.AreEqual(_lookCommand.Execute(_player, new string[] { "look", "around" }), "What do you want to look at?");
+         Assert.AreEqual(_lookCommand.Execute(_player, new string[] { "look", "ahead" }), "What do you want to look at?");
+
+     }
+
     }
 }
+
+

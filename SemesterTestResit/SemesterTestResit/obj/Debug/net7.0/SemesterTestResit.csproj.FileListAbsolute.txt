@@ -1,0 +1,14 @@
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.AssemblyInfoInputs.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.AssemblyInfo.cs
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.csproj.CoreCompileInputs.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\bin\Debug\net7.0\SemesterTestResit.exe
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\bin\Debug\net7.0\SemesterTestResit.deps.json
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\bin\Debug\net7.0\SemesterTestResit.runtimeconfig.json
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\bin\Debug\net7.0\SemesterTestResit.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\bin\Debug\net7.0\SemesterTestResit.pdb
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\refint\SemesterTestResit.dll
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.pdb
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\SemesterTestResit.genruntimeconfig.cache
+C:\Users\lequa\OneDrive\Documents\COS20007\SemesterTestResit\SemesterTestResit\obj\Debug\net7.0\ref\SemesterTestResit.dll

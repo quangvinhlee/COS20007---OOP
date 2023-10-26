@@ -8,7 +8,7 @@ namespace ShapeDrawer
         private Color _color;
         private float _x, _y;
         private bool _selected;
-        private int _witdh, _height;
+
         public Shape(Color clr)
         {
             _color = clr;
@@ -49,9 +49,6 @@ namespace ShapeDrawer
                 _y = value;
             }
         }
-        public abstract void Draw();
-        public abstract bool IsAt(Point2D p);
-      
 
         public bool Selected
         {
@@ -65,13 +62,19 @@ namespace ShapeDrawer
             }
         }
 
+        public abstract void Draw();
+
+        public abstract bool IsAt(Point2D p);
+
         public abstract void DrawOutline();
+
         public virtual void SaveTo(StreamWriter writer)
         {
             writer.WriteColor(Color);
             writer.WriteLine(X);
             writer.WriteLine(Y);
         }
+
         public virtual void LoadFrom(StreamReader reader)
         {
             Color = reader.ReadColor();

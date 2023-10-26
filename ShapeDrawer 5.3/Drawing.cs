@@ -22,15 +22,15 @@ namespace ShapeDrawer
 
         public List<Shape> SelectedShapes()
         {
-            List<Shape> _selectedShapes = new List<Shape>();
-            foreach (Shape s in _selectedShapes)
+            List<Shape> selectedShapes = new List<Shape>();
+            foreach (Shape s in _shapes)
             {
                 if (s.Selected)
                 {
-                    _selectedShapes.Add(s);
+                    selectedShapes.Add(s);
                 }
             }
-            return _selectedShapes;
+            return selectedShapes;
         }
 
         public int ShapeCount
@@ -56,7 +56,6 @@ namespace ShapeDrawer
         public void Draw()
         {
             SplashKit.ClearScreen(_background);
-
             foreach (Shape s in _shapes)
             {
                 s.Draw();
@@ -78,34 +77,19 @@ namespace ShapeDrawer
             }
         }
 
-        public void AddShape(Shape s)
-        {
-            _shapes.Add(s);
-        }
-
-        public void RemoveShape()
-        {
-            foreach (Shape s in _shapes.ToList())
-            {
-                if (s.Selected)
-                {
-                    _shapes.Remove(s);
-                }
-            }
-        }
         public void Save(string filename)
         {
             StreamWriter writer = new StreamWriter(filename);
-
             writer.WriteColor(Background);
             writer.WriteLine(ShapeCount);
-            foreach(Shape s in _shapes)
+            foreach (Shape s in _shapes)
             {
                 s.SaveTo(writer);
             }
             writer.Close();
         }
-        public void Load (string filename)
+
+        public void Load(string filename)
         {
             StreamReader reader = new StreamReader(filename);
             Background = reader.ReadColor();
@@ -118,20 +102,33 @@ namespace ShapeDrawer
                 if (kind == "Rectangle")
                 {
                     s = new MyRectangle();
-                } else if (kind == "Circle")
+                }
+                else if (kind == "Circle")
                 {
                     s = new MyCircle();
-                }else
+                }
+                else if (kind == "Line")
+                {
+                    s = new MyLine();
+                }
+                else
                 {
                     continue;
                 }
                 s.LoadFrom(reader);
                 _shapes.Add(s);
-
             }
             reader.Close();
-
         }
 
+        public void AddShape(Shape s)
+        {
+            _shapes.Add(s);
+        }
+
+        public void RemoveShape(Shape s)
+        {
+            _shapes.Remove(s);
+        }
     }
 }

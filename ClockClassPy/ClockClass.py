@@ -1,0 +1,52 @@
+import time
+
+class Counter:
+    def __init__(self, name, count=0):
+        self.name = name
+        self.count = count
+
+    def reset(self):
+        self.count = 0
+
+    def increment(self):
+        self.count += 1
+
+    @property
+    def ticks(self):
+        return self.count
+
+class Clock:
+    def __init__(self):
+        self.seconds = Counter("seconds")
+        self.minutes = Counter("minutes")
+        self.hours = Counter("hours")
+
+    def tick(self):
+        self.seconds.increment()
+        if self.seconds.ticks == 60:
+            self.minutes.increment()
+            self.seconds.reset()
+            if self.minutes.ticks == 60:
+                self.hours.increment()
+                self.minutes.reset()
+                if self.hours.ticks == 24:
+                    self.reset()
+
+    def reset(self):
+        self.seconds.reset()
+        self.minutes.reset()
+        self.hours.reset()
+
+    def current_time(self):
+        return f"{self.hours.ticks:02d}:{self.minutes.ticks:02d}:{self.seconds.ticks:02d}"
+
+def main():
+    clock = Clock()
+
+    for i in range(86400):
+        time.sleep(0.0001)
+        clock.tick()
+        print(clock.current_time())
+
+if __name__ == "__main__":
+    main()

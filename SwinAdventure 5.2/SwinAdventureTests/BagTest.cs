@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SwinAdventure;
+using NUnit.Framework;
 
 namespace SwinAdventureTests
 {
@@ -14,6 +15,7 @@ namespace SwinAdventureTests
         private Item _shovel;
         private Item _sword;
         private Item _bow;
+
         [SetUp]
         public void SetUp()
         {
@@ -26,16 +28,15 @@ namespace SwinAdventureTests
             _bagObject.Inventory.Put(_sword);
             _bagObject.Inventory.Put(_shovel);
         }
+
         [Test]
-        public void TestBagLocatesItems() 
+        public void TestBagLocatesItems()
         {
-           
-            Assert.IsTrue(_bagObject.Inventory.HasItem("sword")); //Check if have item
+            Assert.IsTrue(_bagObject.Inventory.HasItem("sword"));
             Assert.IsTrue(_bagObject.Inventory.HasItem("shovel"));
 
-            Assert.IsTrue(_bagObject.Locate(_sword.FirstID) == _sword); //Check if locate item
-            Assert.IsTrue(_bagObject.Locate(_shovel.FirstID) == _shovel);
-
+            Assert.AreEqual(_bagObject.Locate("sword"), _sword);
+            Assert.AreEqual(_bagObject.Locate("shovel"), _shovel);
         }
 
         [Test]
@@ -48,27 +49,29 @@ namespace SwinAdventureTests
                 Assert.AreEqual(_bagObject.Locate(id), _bagObject);
             }
         }
+
         [Test]
         public void TestBagLocatesNothing()
         {
-            Assert.IsTrue(_bagObject.Locate(_bow.FirstID) == null);
+            Assert.AreEqual(null, _bagObject.Locate("bow"));
         }
+
         [Test]
         public void TestBagFullDescription()
         {
             Assert.AreEqual(_bagObject.FullDescription, "a bag, containing:\na sword (sword)\na shovel (shovel)\n");
         }
+
         [Test]
-        public void TestBagInBag() 
+        public void TestBagInBag()
         {
             _bagObject.Inventory.Put(_secondBagObject);
-            Assert.IsTrue(_bagObject.Locate(_secondBagObject.FirstID) == _secondBagObject);
-            Assert.IsTrue(_bagObject.Locate(_sword.FirstID) == _sword);
-            Assert.IsFalse(_bagObject.Locate(_bow.FirstID) == _bow);
+            Assert.AreEqual(_bagObject.Locate("second bag"), _secondBagObject);
+            Assert.AreEqual(_bagObject.Locate("sword"), _sword);
+            Assert.AreEqual(null, _bagObject.Locate("bow"));
 
             Assert.AreEqual(_bagObject.FullDescription, "a bag, containing:\na sword (sword)\na shovel (shovel)\na second bag (second bag)\n");
             Assert.AreEqual(_secondBagObject.FullDescription, "a second bag, containing:\na bow (bow)\n");
-
         }
     }
 }
